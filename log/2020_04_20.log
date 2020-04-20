@@ -1,0 +1,24 @@
+[2020-04-20 13:47:54,103] - ERROR: 驱动app打开失败：Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device.
+
+[2020-04-20 13:47:56,108] - ERROR: 登录失败：'NoneType' object has no attribute 'swipe'
+[2020-04-20 13:49:03,434] - INFO: ---驱动app打开成功---
+[2020-04-20 13:49:28,525] - INFO: ---登录成功，进入首页---
+[2020-04-20 13:51:23,453] - INFO: ---驱动app打开成功---
+[2020-04-20 13:51:43,561] - ERROR: 登录失败：'WebDriver' object has no attribute 'get_visible_element'
+[2020-04-20 13:56:54,271] - INFO: ---驱动app打开成功---
+[2020-04-20 13:57:12,416] - ERROR: 登录失败：'WebDriver' object has no attribute 'get_visible_element'
+[2020-04-20 13:58:25,089] - INFO: ---驱动app打开成功---
+[2020-04-20 13:58:43,253] - ERROR: 登录失败：'WebDriver' object has no attribute 'get_visible_element'
+[2020-04-20 14:06:06,092] - INFO: ---驱动app打开成功---
+[2020-04-20 14:50:36,890] - INFO: ---驱动app打开成功---
+[2020-04-20 14:50:54,899] - ERROR: 登录失败：'WebDriver' object has no attribute 'get_visible_element'
+[2020-04-20 14:57:39,131] - INFO: ---驱动app打开成功---
+[2020-04-20 14:57:57,735] - ERROR: 登录失败：'WebDriver' object has no attribute 'get_presence_element'
+[2020-04-20 15:01:31,728] - INFO: ---驱动app打开成功---
+[2020-04-20 15:01:49,662] - ERROR: 进入首页失败：'WebDriver' object has no attribute 'get_presence_element'
+[2020-04-20 15:19:49,924] - INFO: ---驱动app打开成功---
+[2020-04-20 15:29:24,573] - INFO: ---驱动app打开成功---
+[2020-04-20 15:43:36,765] - INFO: ---驱动app打开成功---
+[2020-04-20 15:44:01,049] - INFO: ---登录成功，进入首页---
+[2020-04-20 15:48:11,991] - INFO: ---驱动app打开成功---
+[2020-04-20 15:48:30,125] - ERROR: 进入首页失败：'WebDriver' object has no attribute 'get_visible_element'
