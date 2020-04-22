@@ -47,6 +47,23 @@ class BasePage:
             Screenshots(self.driver, "获取可点击元素失败")
             log.error("可点击元素获取失败：{}".format(e))
 
+    def is_toast_exist(self, text, timeout=20, poll_frequency=0.1):
+        '''
+        判断toast是否存在，是则返回True，否则返回False
+        :param text: toast文本
+        :param timeout: 元素定位超时时间
+        :param poll_frequency: 查询频率
+        :return: True or False
+        '''
+        try:
+            toast_loc = (By.XPATH, ".//*[contains(@text, %s)]" % text)
+            WebDriverWait(self.driver, timeout, poll_frequency).until(
+                ec.presence_of_element_located(toast_loc)
+            )
+            return True
+        except:
+            return False
+
     @property
     def width(self):
         '''获取屏幕宽度'''
