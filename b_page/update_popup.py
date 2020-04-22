@@ -3,6 +3,7 @@
 # @Time    : 2020/04/16
 # @Author  : lfr
 
+from appium import webdriver
 from b_page.basepage import BasePage
 from b_page.login import LoginPage
 from b_page.start_page import StartPage
@@ -13,7 +14,9 @@ from common.base_driver import BaseDriver
 class UpdatePopup(BasePage):
     '''版本更新弹窗'''
     update_loc = (By.ID, 'com.qekj.merchant:id/ll_update')
-    cancel_loc = (By.ID, 'com.qekj.merchant:id/iv_cancel')
+
+    cancel_el = 'com.qekj.merchant:id/iv_cancel'
+    cancel_loc = (By.ID, cancel_el)
 
     def update_opera(self):
         '''更新版本'''
@@ -21,7 +24,7 @@ class UpdatePopup(BasePage):
 
     def cancel_opera(self):
         '''取消更新'''
-        return self.cancel_btn().click()
+        return self.driver.find_element_by_id(self.cancel_el).click()
 
     def update_btn(self)->WebElement:
         '''立即更新按钮'''
