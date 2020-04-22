@@ -17,7 +17,7 @@ def page_click(x, y):
 def get_yaml_value(p, k):
     '''获取yaml文件中key对应的值'''
     try:
-        with open(p, 'r') as f:
+        with open(p, 'r', encoding='utf-8') as f:
             cont = yaml.load(f.read(), Loader=yaml.RoundTripLoader)
             val = cont[k]
         return val
