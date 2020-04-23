@@ -38,7 +38,7 @@ class BaseDriver:
         try:
             driver = webdriver.Remote('http://' + str(data['ip']) + ':' + str(data['port']) + '/wd/hub', desired_caps)
             driver.implicitly_wait(8)
-            log.info("---驱动app打开成功---")
+            log.info("驱动app打开成功...")
             return driver
         except Exception as e:
             log.error("驱动app打开失败：{}".format(e))
