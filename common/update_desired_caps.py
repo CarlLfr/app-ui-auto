@@ -37,7 +37,7 @@ class UpdateDesiredCaps:
             # 将修改的内容重新写入该yaml文件
             with open(self.yamlPath, 'w', encoding='utf-8') as nf:
                 yaml.dump(content, nf, Dumper=yaml.RoundTripDumper)
-            log.info("---desired_caps更新完成---")
+            log.info("desired_caps更新完成...")
         except Exception as e:
             log.info("desired.caps更新失败！！！失败原因为：%s" % e)
 
