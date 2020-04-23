@@ -41,7 +41,11 @@ class ModifyPwd(unittest.TestCase):
         ms.change_pwd(old_pwd, new_pwd)
 
         # 判断是否修改成功
-        result = ms.is_toast_exist("修改成功")
+        result = False
+        if ms.is_toast_exist("修改成功"):
+            result = True
+        elif ms.is_exist_element("验证码登录"):
+            result = True
         self.assertTrue(result)
         time.sleep(2)
 
