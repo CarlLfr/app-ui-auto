@@ -35,17 +35,17 @@ class PageInit(BasePage):
             time.sleep(1)
             # 判断是否登录成功
             if lp.is_exist_element(self.update_ele):
-                log.info("---登录成功，进入首页---")
+                log.info("登录成功，进入首页...")
                 self.is_exist_update()
                 if lp.is_exist_element(self.iknow_ele):
                     self.is_exist_iknow()
                 else:
                     pass
             elif lp.is_exist_element(self.iknow_ele):
-                log.info("---登录成功，进入首页---")
+                log.info("登录成功，进入首页...")
                 self.is_exist_iknow()
             elif lp.is_exist_element(self.home_ele):
-                log.info("---登录成功，进入首页---")
+                log.info("登录成功，进入首页...")
                 pass
             else:
                 log.error("初始化登录失败，终止自动化程序！！！")
