@@ -39,7 +39,7 @@ class BaseAdb:
             result = os.popen(self.platformVersion_command).read()
             platformVersion = result.split('\n')[0]
             # print(platformVersion)
-            log.info("---获取设备系统版本号成功---")
+            log.info("获取设备系统版本号成功...")
             return platformVersion
         except Exception as e:
             log.error("获取系统版本号失败：{}".format(e))
@@ -50,7 +50,7 @@ class BaseAdb:
             result = os.popen(self.deviceName_command).read()
             deviceName = result.split('\n')[0]
             # print(deviceName)
-            log.info("---获取设备名成功---")
+            log.info("获取设备名成功...")
             return deviceName
         except Exception as e:
             log.error("获取设备名失败：{}".format(e))
