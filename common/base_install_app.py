@@ -33,7 +33,7 @@ class IsInstallApp:
         log.info("检查{}应用是否已安装...".format(self.appName))
         result = os.popen(self.list_package_command).read()
         if self.appPackage in result:
-            log.info("---应用已安装---")
+            log.info("应用已安装...")
         else:
             log.info("应用未安装！！！")
             self.install_app()
@@ -44,7 +44,7 @@ class IsInstallApp:
             log.info("正在安装应用{}，请稍后...".format(self.appName))
             result = os.popen(self.install_command).read()
             if "Success" in result:
-                log.info("---{}应用安装成功---")
+                log.info("{}应用安装成功...")
         except Exception as e:
             log.error("应用安装失败：{}".format(e))
 
@@ -54,7 +54,7 @@ class IsInstallApp:
             log.info("开始卸载应用{}...".format(self.appName))
             result = os.popen(self.uninstall_command).read()
             if "Success" in result:
-                log.info("---应用卸载成功---")
+                log.info("应用卸载成功...")
         except Exception as e:
             log.error("应用卸载失败：{}".format(e))
 
