@@ -22,7 +22,7 @@ class TestLogin(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         '''初始化，进入登录页面'''
-        log.info("----开始执行用例：登录-----")
+        log.info("-----开始执行用例：登录-----")
         cls.driver = BaseDriver().android_driver()
         StartPage(cls.driver).swipe_start()
         return cls.driver
@@ -32,7 +32,7 @@ class TestLogin(unittest.TestCase):
 
     def test_01_login_abnormal(self):
         '''正确用户名，错误密码登录'''
-        log.info("---验证正确用户名、正确密码登录---")
+        log.info("验证正确用户名、正确密码登录")
         tel = get_yaml_value(TEST_ACCOUNT_PATH, 'account_1')
         pwd = get_yaml_value(TEST_ACCOUNT_PATH, 'pwd_1_wrong')
         lp = LoginPage(self.driver)
@@ -44,7 +44,7 @@ class TestLogin(unittest.TestCase):
 
     def test_02_login_normal(self):
         '''正确用户名，正确密码登录'''
-        log.info("---验证正确用户名、正确密码登录---")
+        log.info("验证正确用户名、正确密码登录")
         tel = get_yaml_value(TEST_ACCOUNT_PATH, 'account_1')
         pwd = get_yaml_value(TEST_ACCOUNT_PATH, 'pwd_1_right')
         lp = LoginPage(self.driver)
@@ -69,7 +69,7 @@ class TestLogin(unittest.TestCase):
 
     def test_03_logout(self):
         '''退出登录'''
-        log.info("---验证退出登录---")
+        log.info("验证退出登录")
         # 进入我的->设置
         ms = MySet(self.driver)
         ms.enter_to_my()
