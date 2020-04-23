@@ -5,6 +5,7 @@
 # @File    : basepage.py
 # @Software: PyCharm
 
+from appium import webdriver
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 from appium.webdriver.common.mobileby import MobileBy as By
@@ -47,6 +48,16 @@ class BasePage:
         except Exception as e:
             Screenshots(self.driver, "获取可点击元素失败")
             log.error("可点击元素获取失败：{}".format(e))
+
+    def get_text_element(self, text_loc, timeout=20):
+        '''通过text定位元素'''
+        try:
+            return WebDriverWait(self.driver, timeout).until(
+                lambda driver: self.driver.find_element(*text_loc)
+            )
+        except Exception as e:
+            Screenshots(self.driver, "通过text获取元素失败")
+            log.error("通过text获取元素失败：{}".format(e))
 
     def is_toast_exist(self, text, timeout=20, poll_frequency=0.1):
         '''
