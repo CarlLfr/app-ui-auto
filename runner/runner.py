@@ -15,7 +15,7 @@ from common.base_appiumServer import AppiumServer
 suite = unittest.defaultTestLoader.discover(TESTCASE_PATH, pattern='test_*.py')
 
 if __name__ == '__main__':
-    log.info("-----初始化测试环境-----")
+    log.info("========初始化测试环境========")
     # 启动appium服务
     AppiumServer().start_appium()
 
@@ -40,4 +40,4 @@ if __name__ == '__main__':
     # 停止appium服务
     AppiumServer().quit_appium()
 
-    log.info("-----测试完成-----")
+    log.info("========测试完成========")
