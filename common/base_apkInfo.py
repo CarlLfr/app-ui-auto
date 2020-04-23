@@ -51,7 +51,7 @@ class BaseApkInfo:
             appActivity = match_apkActivity.groups()[0]
             # print(appPackage)
             # print(appActivity)
-            log.info("---获取被测apk包的appPackage、appActivity成功---")
+            log.info("获取被测apk包的appPackage、appActivity成功...")
             return appPackage, appActivity
         except Exception as e:
             log.error("获取被测apk包的appPackage、appActivity失败：{}".format(e))
