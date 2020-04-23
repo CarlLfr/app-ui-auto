@@ -19,7 +19,7 @@ class AppiumServer:
         try:
             os.system('start appium -a 127.0.0.1 -p 4723')
             time.sleep(5)
-            log.info("启动appium服务")
+            log.info("启动appium服务...")
         except Exception as e:
             log.error("appium启动失败：{}".format(e))
 
@@ -30,7 +30,7 @@ class AppiumServer:
         pid = process.replace(' ', '').split('LISTENING')[1]
         m = os.popen('taskkill -f -pid %s' % pid)
         # print(m.read())
-        log.info("appium服务已停止")
+        log.info("appium服务已停止...")
 
 if __name__ == '__main__':
     ap = AppiumServer()
