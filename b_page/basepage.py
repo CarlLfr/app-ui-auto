@@ -7,6 +7,7 @@
 
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
+from appium.webdriver.common.mobileby import MobileBy as By
 from common.base_log import log
 from common.base_screenshots import Screenshots
 from config.keys import Keycode
