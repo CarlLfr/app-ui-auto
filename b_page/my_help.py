@@ -13,14 +13,14 @@ class MyHelp(MyPage):
     联系客服，合作热线，帮助中心
     '''
     # 联系客服
-    ask_text_loc = (By.XPATH, '//*[@text="提现到账时间"]')
+    ask_text = "提现到账时间"
     answer_text = "目前商户提现一般为24小时内到账，特殊情况48小时内到账。"
 
     # 合作热线
-    hotline_text_loc = (By.XPATH, '//*[@text="服务热线："]')
+    hotline_text = "服务热线："
 
     # 帮助中心
-    problem_text_loc = (By.XPATH, '//*[@text="模块指示灯识别办法"]')
+    problem_text = "模块指示灯识别办法"
     help_back_loc = (By.ID, "com.qekj.merchant:id/ll_back")
 
 
@@ -31,14 +31,14 @@ class MyHelp(MyPage):
 
     def ask_btn(self):
         '''联系客服-问题-体现到账时间'''
-        my_ele = self.get_text_element(self.ask_text_loc)
+        my_ele = self.get_text_element(self.ask_text)
         return my_ele
 
 
 
     def hot_line(self):
         '''合作热线页面-"服务热线："text'''
-        my_ele = self.get_text_element(self.hotline_text_loc)
+        my_ele = self.get_text_element(self.hotline_text)
         return my_ele
 
 
@@ -55,7 +55,7 @@ class MyHelp(MyPage):
 
     def problem_btn(self):
         '''帮助中心-问题'''
-        my_ele = self.get_text_element(self.problem_text_loc)
+        my_ele = self.get_text_element(self.problem_text)
         return my_ele
 
     def help_back_btn(self):
