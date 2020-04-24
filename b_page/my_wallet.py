@@ -15,11 +15,11 @@ class MyWallet(MyPage):
     income_out_detail_loc = (By.ID, 'com.qekj.merchant:id/tv_right_toolbar')
     screen_loc = (By.ID, 'com.qekj.merchant:id/tv_screening')
     # 筛选条件页
-    screen_income_loc = (By.XPATH, '//*[@text="收入"]')
-    screen_out_loc = (By.XPATH, '//*[@text="支出"]')
-    screen_order_loc = (By.XPATH, '//*[@text="订单"]')
-    screen_fenzhang_loc = (By.XPATH, '//*[@text="分账"]')
-    screen_shop_loc = (By.XPATH, '//*[@text="洗衣液投放器店"]')
+    screen_income_loc = "收入"
+    screen_out_loc = "支出"
+    screen_order_loc = "订单"
+    screen_fenzhang_loc = "分账"
+    screen_shop_loc = "洗衣液投放器店"
     screen_reset_loc = (By.ID, 'com.qekj.merchant:id/ll_reset')
     screen_sure_loc = (By.ID, 'com.qekj.merchant:id/ll_sure')
     # 筛选结果
