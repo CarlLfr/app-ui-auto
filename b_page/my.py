@@ -44,7 +44,7 @@ class MyPage(Tab):
     def enter_to_contract(self):
         '''进入联系客服'''
         self.contract_btn().click()
-        time.sleep(0.5)
+        time.sleep(2)
 
     def enter_to_hotline(self):
         '''进入合作热线'''
