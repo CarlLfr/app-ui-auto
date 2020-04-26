@@ -19,7 +19,7 @@ class TestHelp(unittest.TestCase):
         pass
 
     def setUp(self) -> None:
-        '''初始化，进入登录页面'''
+        '''初始化，登录进入首页'''
         log.info("-----开始执行用例：联系客服，合作热线，帮助中心-----")
         self.driver = BaseDriver().android_driver()
         PageInit(self.driver).init_to_home()
