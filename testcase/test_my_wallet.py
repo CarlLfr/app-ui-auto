@@ -12,7 +12,7 @@ from b_page.page_init import PageInit
 
 class TestMyWallet(unittest.TestCase):
     '''
-    验证我的钱包：收支明细页筛选，体现记录
+    验证我的钱包：收支明细页筛选，提现记录
     '''
     @classmethod
     def setUpClass(cls) -> None:
