@@ -6,3 +6,6 @@ pwd_1_wrong: 000000
 old_pwd_s: 123456
 #修改密码时的新密码
 new_pwd_s: 111111
+
+#导出邮箱
+email: 490635974@qq.com
