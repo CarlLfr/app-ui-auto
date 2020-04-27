@@ -26,7 +26,7 @@ class BasePage:
                 ec.visibility_of_element_located(locator)
             )
         except Exception as e:
-            Screenshots(self.driver, "获取可视元素失败")
+            Screenshots(self.driver, "获取可视元素失败").screen_shot()
             log.error("获取可视元素失败：{}".format(e))
 
     def get_presence_element(self, locator, timeout=20):
@@ -36,7 +36,7 @@ class BasePage:
                 ec.presence_of_element_located(locator)
             )
         except Exception as e:
-            Screenshots(self.driver, "获取存在元素失败")
+            Screenshots(self.driver, "获取存在元素失败").screen_shot()
             log.error("获取存在元素失败：{}".format(e))
 
     def get_clickable_element(self, locator, timeout=20):
@@ -46,7 +46,7 @@ class BasePage:
                 ec.element_to_be_clickable(locator)
             )
         except Exception as e:
-            Screenshots(self.driver, "获取可点击元素失败")
+            Screenshots(self.driver, "获取可点击元素失败").screen_shot()
             log.error("可点击元素获取失败：{}".format(e))
 
     def get_text_element(self, text, timeout=20):
@@ -57,7 +57,7 @@ class BasePage:
                 lambda driver: self.driver.find_element(*text_loc)
             )
         except Exception as e:
-            Screenshots(self.driver, "通过text获取元素失败")
+            Screenshots(self.driver, "通过text获取元素失败").screen_shot()
             log.error("通过text获取元素失败：{}".format(e))
 
     # def get_xpath_element(self, xpath, timeout=20):
