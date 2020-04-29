@@ -35,7 +35,7 @@ class TestHelp(unittest.TestCase):
 
         # 点击问题验证
         mh.contract_opera()
-        result = mh.is_exist_element(mh.answer_text)
+        result = mh.new_is_exist_element(mh.answer_text)
         self.assertTrue(result)
 
     # @unittest.skip("跳过")
@@ -48,7 +48,7 @@ class TestHelp(unittest.TestCase):
         mh.enter_to_hotline()
 
         # 断言页面是否有"服务热线："字样
-        result = mh.is_exist_element("服务热线：")
+        result = mh.new_is_exist_element("服务热线：")
         self.assertTrue(result)
 
     # @unittest.skip("脚本调试，跳过")
@@ -62,7 +62,7 @@ class TestHelp(unittest.TestCase):
 
         # 点击问题验证
         mh.help_opera()
-        result = mh.is_exist_element("黄色灯：为信号指示灯")
+        result = mh.new_is_exist_element("黄色灯：为信号指示灯")
         self.assertTrue(result)
 
     def tearDown(self) -> None:
