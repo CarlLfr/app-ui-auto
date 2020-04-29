@@ -48,7 +48,7 @@ class BaseApkInfo:
                                          stdin=subprocess.PIPE,
                                          shell=True)
             # windows获取方法
-            # Windows_p = subprocess.Popen(aapt_command+app_path, stdout=subprocess.PIPE,
+            # Windows_p = subprocess.Popen(aapt_command_base+app_path, stdout=subprocess.PIPE,
             #                  stderr=subprocess.PIPE,
             #                  stdin=subprocess.PIPE,
             #                  shell=True)
