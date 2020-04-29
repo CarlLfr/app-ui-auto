@@ -37,12 +37,22 @@ class BaseApkInfo:
 
     def get_apk_info(self):
         '''获取apk包的appPackage、启动类appActivity'''
+        mac_aapt_path = '/Users/mac/Downloads/android-sdk-macosx/build-tools/29.0.3/'
+        aapt_command_base = 'aapt dump badging '
+        app_path = self.get_apk_path()
+
         try:
-            p = subprocess.Popen('aapt dump badging %s' % self.get_apk_path(), stdout=subprocess.PIPE,
-                             stderr=subprocess.PIPE,
-                             stdin=subprocess.PIPE,
-                             shell=True)
-            (output, err) = p.communicate()
+            # mac获取方法
+            mac_p = subprocess.Popen(mac_aapt_path+aapt_command_base+app_path, stdout=subprocess.PIPE,
+                                         stderr=subprocess.PIPE,
+                                         stdin=subprocess.PIPE,
+                                         shell=True)
+            # windows获取方法
+            # Windows_p = subprocess.Popen(aapt_command+app_path, stdout=subprocess.PIPE,
+            #                  stderr=subprocess.PIPE,
+            #                  stdin=subprocess.PIPE,
+            #                  shell=True)
+            (output, err) = mac_p.communicate()
             t = output.decode()
             # print(t)
             match_appPackage = re.compile("package: name='(.*?)'").search(t)
