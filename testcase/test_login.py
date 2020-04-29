@@ -37,8 +37,8 @@ class TestLogin(unittest.TestCase):
         pwd = get_yaml_value(TEST_ACCOUNT_PATH, 'pwd_1_wrong')
         lp = LoginPage(self.driver)
         lp.login_opera(tel, pwd)
-        time.sleep(2)
-        result = lp.is_exist_element("登录")
+        # time.sleep(2)
+        result = lp.is_toast_exist("账号或密码错误")
         self.assertTrue(result)
         time.sleep(2)
 
@@ -52,17 +52,17 @@ class TestLogin(unittest.TestCase):
         time.sleep(2)
         # 判断是否登录成功
         result = False
-        if lp.is_exist_element("立即更新"):
+        if lp.new_is_exist_element("立即更新"):
             result = True
             UpdatePopup(self.driver).cancel_opera()
-            if lp.is_exist_element("我知道了"):
+            if lp.new_is_exist_element("我知道了"):
                 Iknow(self.driver).click_iknow_btn()
         else:
-            if lp.is_exist_element("我知道了"):
+            if lp.new_is_exist_element("我知道了"):
                 result = True
                 Iknow(self.driver).click_iknow_btn()
             else:
-                if lp.is_exist_element("首页"):
+                if lp.new_is_exist_element("首页"):
                     result = True
         self.assertTrue(result)
         time.sleep(1)
@@ -79,7 +79,7 @@ class TestLogin(unittest.TestCase):
 
         # 断言是否退出成功
         time.sleep(1)
-        result = ms.is_exist_element("验证码登录")
+        result = ms.new_is_exist_element("验证码登录")
         self.assertTrue(result)
 
     def tearDown(self) -> None:
