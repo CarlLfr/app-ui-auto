@@ -34,12 +34,12 @@ class TestMyMessage(unittest.TestCase):
         mm.enter_to_message_switch()
         # 点击关闭投放器液位预警开关，断言开关状态
         mm.switch_opera()
-        r_1 = mm.is_exist_element("OFF")
+        r_1 = mm.new_is_exist_element("OFF")
         self.assertTrue(r_1)
 
         # 再次点击开启投放器液位预警开关
         mm.switch_opera()
-        r_2 = mm.is_exist_element("OFF")
+        r_2 = mm.new_is_exist_element("OFF")
         self.assertFalse(r_2)
 
     def tearDown(self) -> None:
