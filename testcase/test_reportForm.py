@@ -57,7 +57,7 @@ class TestReportForm(unittest.TestCase):
         rfp.report_screen_opera()
 
         # 断言筛选结果是否正确
-        result = rfp.is_exist_element(rfp.store_text)
+        result = rfp.new_is_exist_element(rfp.store_text)
         self.assertTrue(result)
 
     def test_report_order(self):
@@ -69,7 +69,7 @@ class TestReportForm(unittest.TestCase):
         rfp.report_order_opera()
 
         # 断言结果是否正确
-        r_1 = rfp.is_exist_element(rfp.title_text)
-        r_2 = rfp.is_exist_element(rfp.order_store_text)
+        r_1 = rfp.new_is_exist_element(rfp.title_text)
+        r_2 = rfp.new_is_exist_element(rfp.order_store_text)
         self.assertTrue(r_1)
         self.assertTrue(r_2)
