@@ -167,6 +167,23 @@ class BasePage:
         else:
             return False
 
+    def new_is_exist_element(self, text, timeout=20):
+        '''
+        重新封装，判断元素是否存在
+        text: 元素的文本
+        '''
+        sleep(2)
+        try:
+            text_loc = (By.XPATH, "//*[@text=\'{}\']".format(text))
+            WebDriverWait(self.driver, timeout).until(
+                ec.visibility_of_element_located(text_loc)
+            )
+            return True
+        except Exception as e:
+            Screenshots(self.driver, "text获取失败").screen_shot()
+            log.error("text获取失败：{}".format(e))
+            return False
+
 if __name__ == '__main__':
     # driver = BaseDriver().android_driver()
     # sleep(5)
