@@ -44,7 +44,7 @@ class ModifyPwd(unittest.TestCase):
         result = False
         if ms.is_toast_exist("修改成功"):
             result = True
-        elif ms.is_exist_element("验证码登录"):
+        elif ms.new_is_exist_element("验证码登录"):
             result = True
         self.assertTrue(result)
         time.sleep(2)
@@ -60,11 +60,11 @@ class ModifyPwd(unittest.TestCase):
         time.sleep(2)
         # 断言是否登录成功
         result = False
-        if lp.is_exist_element("立即更新"):
+        if lp.new_is_exist_element("立即更新"):
             result = True
             # 有则点击取消
             UpdatePopup(self.driver).cancel_opera()
-        elif lp.is_exist_element("首页"):
+        elif lp.new_is_exist_element("首页"):
             result = True
         self.assertTrue(result)
         time.sleep(2)
