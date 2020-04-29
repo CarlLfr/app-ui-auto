@@ -37,9 +37,9 @@ class TestMyWallet(unittest.TestCase):
         mw.enter_to_result_detail()
 
         # 断言详情页与筛选条件是否一致
-        r_1 = mw.is_exist_element(mw.order_detail_name)
+        r_1 = mw.new_is_exist_element(mw.order_detail_name)
         self.assertTrue(r_1)
-        r_2 = mw.is_exist_element(mw.order_detail_store)
+        r_2 = mw.new_is_exist_element(mw.order_detail_store)
         self.assertTrue(r_2)
 
     @unittest.skip("该用例未调试")
@@ -53,7 +53,7 @@ class TestMyWallet(unittest.TestCase):
         mw.enter_to_withdraw_record()
 
         # 断言展示是否正常
-        result = mw.is_exist_element(mw.record_detail_text)
+        result = mw.new_is_exist_element(mw.record_detail_text)
         self.assertFalse(result)
 
     def tearDown(self) -> None:
