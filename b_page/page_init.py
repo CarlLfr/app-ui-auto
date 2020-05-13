@@ -21,6 +21,7 @@ class PageInit(BasePage):
     '''
     login_ele = "登录"
     update_ele = "立即更新"
+    cancel_el = 'com.qekj.merchant:id/iv_cancel'
     iknow_ele = "我知道了"
     home_ele = "首页"
 
@@ -36,14 +37,21 @@ class PageInit(BasePage):
             # 判断是否登录成功
             if lp.is_exist_element(self.update_ele):
                 log.info("登录成功，进入首页...")
-                self.is_exist_update()
-                if lp.is_exist_element(self.iknow_ele):
-                    self.is_exist_iknow()
-                else:
-                    pass
+                self.update_cancel_opera()
+                # 判断是否存在通知弹窗
+                if lp.is_exist_element(self.cancel_el):
+                    self.notice_cancel_opera()
+                    # 判断是否存在"知道了"
+                    if lp.is_exist_element(self.iknow_ele):
+                        self.iknow_click_opera()
+                    else:
+                        pass
+            elif lp.is_exist_element(self.cancel_el):
+                log.info("登录成功，进入首页...")
+                self.notice_cancel_opera()
             elif lp.is_exist_element(self.iknow_ele):
                 log.info("登录成功，进入首页...")
-                self.is_exist_iknow()
+                self.iknow_click_opera()
             elif lp.is_exist_element(self.home_ele):
                 log.info("登录成功，进入首页...")
                 pass
@@ -53,23 +61,34 @@ class PageInit(BasePage):
         except Exception as e:
             log.error("进入首页失败：{}".format(e))
 
-    def is_exist_update(self):
+    def update_cancel_opera(self):
         '''判断登录后是否存在非强制更新弹窗，存在则点击取消按钮'''
-        result = self.is_exist_element(self.update_ele)
-        # print(result)
-        if result == True:
-            UpdatePopup(self.driver).cancel_opera()
-        else:
-            pass
+        # result = self.is_exist_element(self.update_ele)
+        # # print(result)
+        # if result:
+        #     UpdatePopup(self.driver).cancel_opera()
+        # else:
+        #     pass
+        UpdatePopup(self.driver).cancel_opera()
 
-    def is_exist_iknow(self):
+    def notice_cancel_opera(self):
+        '''判断是否有通知弹窗，有则点击关闭'''
+        # result = self.is_exist_element(self.cancel_el)
+        # if result:
+        #     UpdatePopup(self.driver).cancel_opera()
+        # else:
+        #     pass
+        UpdatePopup(self.driver).cancel_opera()
+
+    def iknow_click_opera(self):
         '''登录后判断是否存在【我知道了】按钮，存在则点击'''
-        result = self.is_exist_element(self.iknow_ele)
-        # print(result)
-        if result == True:
-            Iknow(self.driver).click_iknow_btn()
-        else:
-            pass
+        # result = self.is_exist_element(self.iknow_ele)
+        # # print(result)
+        # if result:
+        #     Iknow(self.driver).click_iknow_btn()
+        # else:
+        #     pass
+        Iknow(self.driver).click_iknow_btn()
 
 if __name__ == '__main__':
     driver = BaseDriver().android_driver()
