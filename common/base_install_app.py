@@ -44,7 +44,7 @@ class IsInstallApp:
             log.info("正在安装应用{}，请稍后...".format(self.appName))
             result = os.popen(self.install_command).read()
             if "Success" in result:
-                log.info("{}应用安装成功...")
+                log.info("{}应用安装成功...".format(self.appName))
         except Exception as e:
             log.error("应用安装失败：{}".format(e))
 
