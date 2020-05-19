@@ -52,18 +52,25 @@ class TestLogin(unittest.TestCase):
         time.sleep(2)
         # 判断是否登录成功
         result = False
+        udp = UpdatePopup(self.driver)
         if lp.new_is_exist_element("立即更新"):
             result = True
-            UpdatePopup(self.driver).cancel_opera()
+            udp.cancel_opera()
+            # 判断是否存在通知弹窗
+            if lp.is_exist_element(udp.cancel_el):
+                udp.cancel_opera()
+                if lp.new_is_exist_element("我知道了"):
+                    Iknow(self.driver).click_iknow_btn()
+        elif lp.is_exist_element(udp.cancel_el):
+            udp.cancel_opera()
             if lp.new_is_exist_element("我知道了"):
                 Iknow(self.driver).click_iknow_btn()
+        elif lp.new_is_exist_element("我知道了"):
+            result = True
+            Iknow(self.driver).click_iknow_btn()
         else:
-            if lp.new_is_exist_element("我知道了"):
+            if lp.new_is_exist_element("首页"):
                 result = True
-                Iknow(self.driver).click_iknow_btn()
-            else:
-                if lp.new_is_exist_element("首页"):
-                    result = True
         self.assertTrue(result)
         time.sleep(1)
 
