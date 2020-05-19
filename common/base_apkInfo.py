@@ -43,16 +43,16 @@ class BaseApkInfo:
 
         try:
             # mac获取方法
-            mac_p = subprocess.Popen(mac_aapt_path+aapt_command_base+app_path, stdout=subprocess.PIPE,
-                                         stderr=subprocess.PIPE,
-                                         stdin=subprocess.PIPE,
-                                         shell=True)
+            # p = subprocess.Popen(mac_aapt_path+aapt_command_base+app_path, stdout=subprocess.PIPE,
+            #                              stderr=subprocess.PIPE,
+            #                              stdin=subprocess.PIPE,
+            #                              shell=True)
             # windows获取方法
-            # Windows_p = subprocess.Popen(aapt_command_base+app_path, stdout=subprocess.PIPE,
-            #                  stderr=subprocess.PIPE,
-            #                  stdin=subprocess.PIPE,
-            #                  shell=True)
-            (output, err) = mac_p.communicate()
+            p = subprocess.Popen(aapt_command_base+app_path, stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE,
+                             stdin=subprocess.PIPE,
+                             shell=True)
+            (output, err) = p.communicate()
             t = output.decode()
             # print(t)
             match_appPackage = re.compile("package: name='(.*?)'").search(t)
