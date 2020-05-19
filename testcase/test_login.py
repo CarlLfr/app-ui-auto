@@ -32,7 +32,7 @@ class TestLogin(unittest.TestCase):
 
     def test_01_login_abnormal(self):
         '''正确用户名，错误密码登录'''
-        log.info("验证正确用户名、正确密码登录")
+        log.info("验证正确用户名、错误密码登录")
         tel = get_yaml_value(TEST_ACCOUNT_PATH, 'account_1')
         pwd = get_yaml_value(TEST_ACCOUNT_PATH, 'pwd_1_wrong')
         lp = LoginPage(self.driver)
