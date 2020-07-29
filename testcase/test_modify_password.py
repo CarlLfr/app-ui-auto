@@ -12,6 +12,7 @@ from config.path_config import TEST_ACCOUNT_PATH
 from b_page.page_init import PageInit
 from b_page.my_set import MySet
 from b_page.login import LoginPage
+from b_page.iknow import Iknow
 from b_page.update_popup import UpdatePopup
 
 class ModifyPwd(unittest.TestCase):
@@ -60,11 +61,23 @@ class ModifyPwd(unittest.TestCase):
         time.sleep(2)
         # 断言是否登录成功
         result = False
-        if lp.new_is_exist_element("立即更新"):
+        udp = UpdatePopup(self.driver)
+        if lp.is_exist_element("立即更新"):
             result = True
-            # 有则点击取消
-            UpdatePopup(self.driver).cancel_opera()
-        elif lp.new_is_exist_element("首页"):
+            udp.cancel_opera()
+            # 判断是否存在通知弹窗
+            if lp.is_exist_element(udp.cancel_el):
+                udp.cancel_opera()
+                if lp.is_exist_element("我知道了"):
+                    Iknow(self.driver).click_iknow_btn()
+        elif lp.is_exist_element(udp.cancel_el):
+            udp.cancel_opera()
+            if lp.is_exist_element("我知道了"):
+                Iknow(self.driver).click_iknow_btn()
+        elif lp.is_exist_element("我知道了"):
+            result = True
+            Iknow(self.driver).click_iknow_btn()
+        elif lp.is_exist_element("首页"):
             result = True
         self.assertTrue(result)
         time.sleep(2)

@@ -1,7 +1,7 @@
 platformName: Android
 platformVersion: 8.0.0
 deviceName: Samsung Galaxy S8
-udid: 192.168.119.101:5555
+udid: 192.168.119.102:5555
 appPackage: com.qekj.merchant
 appActivity: com.qekj.merchant.ui.activity.SplashActivity
 automationName: uiautomator2
@@ -11,4 +11,4 @@ newCommondTimeout: 2000
 noReset: false
 ip: 127.0.0.1
 port: 4723
-app: F:\qiekj_app_ui_autotest/app/merchant_20200410_1.5.5.apk
+app: F:\works\qiekj-app-ui-autotest/app/merchant_20200707_1.6.1.apk

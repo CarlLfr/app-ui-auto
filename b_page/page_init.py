@@ -33,33 +33,52 @@ class PageInit(BasePage):
             StartPage(self.driver).swipe_start()
             lp = LoginPage(self.driver)
             lp.login_opera(mobile, pwd)
-            time.sleep(1)
-            # 判断是否登录成功
-            if lp.is_exist_element(self.update_ele):
+            time.sleep(2)
+            # 判断是否登录成功，不成功则再进行一次判定操作
+            result = self.is_login_success()
+            if result:
                 log.info("登录成功，进入首页...")
-                self.update_cancel_opera()
-                # 判断是否存在通知弹窗
-                if lp.is_exist_element(self.cancel_el):
-                    self.notice_cancel_opera()
-                    # 判断是否存在"知道了"
-                    if lp.is_exist_element(self.iknow_ele):
-                        self.iknow_click_opera()
-                    else:
-                        pass
-            elif lp.is_exist_element(self.cancel_el):
-                log.info("登录成功，进入首页...")
-                self.notice_cancel_opera()
-            elif lp.is_exist_element(self.iknow_ele):
-                log.info("登录成功，进入首页...")
-                self.iknow_click_opera()
-            elif lp.is_exist_element(self.home_ele):
-                log.info("登录成功，进入首页...")
-                pass
             else:
-                log.error("初始化登录失败，终止自动化程序！！！")
-                sys.exit(0)
+                time.sleep(2)
+                result_2 = self.is_login_success()
+                if result_2:
+                    log.info("登录成功，进入首页...")
+                else:
+                    log.error("初始化登录失败，终止自动化程序！！！")
+                    # sys.exit(0)
         except Exception as e:
-            log.error("进入首页失败：{}".format(e))
+            log.error("进入首页失败：{}，终止用例执行！！！".format(e))
+            sys.exit(0)
+
+    def is_login_success(self):
+        '''判定，登录成功返回True，并关闭弹窗进入首页，否则返回False'''
+        state = False
+        lp = LoginPage(self.driver)
+        if lp.is_exist_element(self.update_ele):
+            state = True
+            self.update_cancel_opera()
+            # 判断是否存在通知弹窗
+            if lp.is_exist_element(self.cancel_el):
+                self.notice_cancel_opera()
+                # 判断是否存在"知道了"
+                if lp.is_exist_element(self.iknow_ele):
+                    self.iknow_click_opera()
+            elif lp.is_exist_element(self.iknow_ele):
+                self.iknow_click_opera()
+        elif lp.is_exist_element(self.cancel_el):
+            state = True
+            self.notice_cancel_opera()
+            if lp.is_exist_element(self.iknow_ele):
+                self.iknow_click_opera()
+        elif lp.is_exist_element(self.iknow_ele):
+            state = True
+            self.iknow_click_opera()
+        elif lp.is_exist_element(self.home_ele):
+            state = True
+
+        return state
+
+
 
     def update_cancel_opera(self):
         '''判断登录后是否存在非强制更新弹窗，存在则点击取消按钮'''

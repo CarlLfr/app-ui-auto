@@ -22,7 +22,8 @@ class ReportFormPage(Tab):
     r_equipment_loc = (By.XPATH, '//android.widget.TextView[@text="设备"]')
     r_vip_loc = (By.XPATH, '//android.widget.TextView[@text="VIP"]')
     r_all_store_loc = (By.XPATH, '//android.widget.TextView[@text="全部店铺"]')
-    r_store_loc = (By.XPATH, '//android.widget.TextView[@text="洗衣液投放器店"]')
+    tv_all_loc = (By.ID, 'com.qekj.merchant:id/tv_all')
+    r_store_loc = (By.XPATH, '//android.widget.TextView[@text="自动化测试专用店铺"]')
     r_sure_loc = (By.XPATH, '//android.widget.TextView[@text="确定"]')
     r_reset_loc = (By.XPATH, '//android.widget.TextView[@text="重置"]')
     r_all_type_loc = (By.XPATH, '//android.widget.TextView[@text="全部类型"]')
@@ -30,7 +31,7 @@ class ReportFormPage(Tab):
     r_washing_machine_loc = (By.XPATH, '//android.widget.TextView[@text="洗衣机"]')
     r_hair_drier_loc = (By.XPATH, '//android.widget.TextView[@text="吹风机"]')
     screen_result_0 = (By.ID, 'com.qekj.merchant:id/iv_click')
-    store_text = "洗衣液投放器店"
+    store_text = "自动化测试专用店铺"
     export_success_toast = "发送成功"
 
     # 订单
@@ -49,9 +50,10 @@ class ReportFormPage(Tab):
         self.email_sure_btn().click()
 
     def report_screen_opera(self):
-        '''报表-流水-筛选操作：设备-洗衣液投放器店'''
+        '''报表-流水-筛选操作：设备-自动化测试专用店铺'''
         self.screen_btn().click()
         self.equipment_btn().click()
+        self.tv_all_btn().click()
         self.store_btn().click()
         self.screen_sure_btn().click()
         # 筛选完成后点击第一条筛选结果进入详情
@@ -100,6 +102,11 @@ class ReportFormPage(Tab):
     def all_store_btn(self):
         '''筛选-所有店铺选项'''
         re_ele = self.get_visible_element(self.r_all_store_loc)
+        return re_ele
+
+    def tv_all_btn(self):
+        '''筛选-全部'''
+        re_ele = self.get_visible_element(self.tv_all_loc)
         return re_ele
 
     def store_btn(self):

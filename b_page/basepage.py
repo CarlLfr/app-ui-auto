@@ -87,6 +87,17 @@ class BasePage:
         except:
             return False
 
+    def get_toast_text(self):
+        '''定位toast元素，获取text属性'''
+        toast_loc = (By.XPATH, '//*[@class="android.widget.Toast"]')
+        toast_text = self.get_presence_element(toast_loc).get_attribute('text')
+        return toast_text
+
+    def get_element_text(self, loc, attr):
+        '''获取元素的属性'''
+        ele_attr = self.get_visible_element(loc).get_attribute(attr)
+        return ele_attr
+
     @property
     def width(self):
         '''获取屏幕宽度'''
@@ -160,7 +171,7 @@ class BasePage:
         判断元素是否存在
         ele_attr: 元素的属性值
         '''
-        sleep(2)
+        sleep(3)
         source = self.driver.page_source
         if ele_attr in source:
             return True

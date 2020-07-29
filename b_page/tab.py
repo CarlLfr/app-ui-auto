@@ -12,10 +12,10 @@ class Tab(BasePage):
     '''
     tab包含：首页，报表，管理，我的
     '''
-    home_loc = (By.XPATH, "//*[@text='首页']")
-    report_loc = (By.XPATH, "//*[@text='报表']")
-    manage_loc = (By.XPATH, "//*[@text='管理']")
-    my_loc = (By.XPATH, "//*[@text='我的']")
+    home_loc = (By.XPATH, "//android.widget.TextView[@text='首页' and @resource-id='com.qekj.merchant:id/tv_tab']")
+    report_loc = (By.XPATH, "//android.widget.TextView[@text='报表' and @resource-id='com.qekj.merchant:id/tv_tab']")
+    business_opportunity_loc = (By.XPATH, "//android.widget.TextView[@text='商机' and @resource-id='com.qekj.merchant:id/tv_tab']")
+    my_loc = (By.XPATH, "//android.widget.TextView[@text='我的' and @resource-id='com.qekj.merchant:id/tv_tab']")
 
     def enter_to_home(self):
         '''进入首页'''
@@ -25,9 +25,10 @@ class Tab(BasePage):
         '''进入报表页'''
         self.report_tab().click()
 
-    def enter_to_manage(self):
-        '''进入管理页'''
-        self.manage_tab().click()
+    def enter_to_all_applications(self):
+        '''进入商机'''
+        time.sleep(1)
+        self.business_opportunity_tab().click()
 
     def enter_to_my(self):
         '''进入我的页'''
@@ -43,9 +44,9 @@ class Tab(BasePage):
         tab_ele = self.get_visible_element(self.report_loc)
         return tab_ele
 
-    def manage_tab(self):
+    def business_opportunity_tab(self):
         '''报表tab按钮'''
-        tab_ele = self.get_visible_element(self.manage_loc)
+        tab_ele = self.get_visible_element(self.business_opportunity_loc)
         return tab_ele
 
     def my_tab(self):

@@ -31,7 +31,7 @@ class TestHome(unittest.TestCase):
         # global today_revenue_text
 
     # @unittest.skipIf(today_revenue_text=="0.00", "今日收益为零则跳过不执行该用例")
-    @unittest.skip("调试跳过")
+    # @unittest.skip("调试跳过")
     def test_today_revenue(self):
         '''验证首页-今日收益导出功能'''
         log.info("验证首页-今日收益导出功能")
@@ -51,7 +51,7 @@ class TestHome(unittest.TestCase):
             result = hp.is_toast_exist(hp.export_success_toast)
             self.assertTrue(result)
 
-    @unittest.skip("调试跳过")
+    # @unittest.skip("调试跳过")
     def test_month_revenue(self):
         '''验证首页-当月收益导出功能'''
         log.info("验证首页-当月收益导出功能")

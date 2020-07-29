@@ -14,6 +14,7 @@ from b_page.start_page import StartPage
 from b_page.update_popup import UpdatePopup
 from b_page.iknow import Iknow
 from b_page.my_set import MySet
+from b_page.page_init import PageInit
 
 class TestLogin(unittest.TestCase):
     '''
@@ -50,29 +51,11 @@ class TestLogin(unittest.TestCase):
         lp = LoginPage(self.driver)
         lp.login_opera(tel, pwd)
         time.sleep(2)
-        # 判断是否登录成功
-        result = False
-        udp = UpdatePopup(self.driver)
-        if lp.new_is_exist_element("立即更新"):
-            result = True
-            udp.cancel_opera()
-            # 判断是否存在通知弹窗
-            if lp.is_exist_element(udp.cancel_el):
-                udp.cancel_opera()
-                if lp.new_is_exist_element("我知道了"):
-                    Iknow(self.driver).click_iknow_btn()
-        elif lp.is_exist_element(udp.cancel_el):
-            udp.cancel_opera()
-            if lp.new_is_exist_element("我知道了"):
-                Iknow(self.driver).click_iknow_btn()
-        elif lp.new_is_exist_element("我知道了"):
-            result = True
-            Iknow(self.driver).click_iknow_btn()
-        else:
-            if lp.new_is_exist_element("首页"):
-                result = True
+        # 断言是否登录成功
+        pgi = PageInit(self.driver)
+        result = pgi.is_login_success()
         self.assertTrue(result)
-        time.sleep(1)
+        time.sleep(3)
 
     def test_03_logout(self):
         '''退出登录'''

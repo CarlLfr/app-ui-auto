@@ -62,7 +62,7 @@ class TestHelp(unittest.TestCase):
 
         # 点击问题验证
         mh.help_opera()
-        result = mh.new_is_exist_element("黄色灯：为信号指示灯")
+        result = mh.is_exist_element("黄色灯：为信号指示灯")
         self.assertTrue(result)
 
     def tearDown(self) -> None:

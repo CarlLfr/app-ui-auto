@@ -33,7 +33,12 @@ TESTCASE_PATH = BASE_PATH + '/testcase/'
 # 测试报告存储路径
 REPORT_PATH = BASE_PATH + '/report/'
 
-
+# 新增设备的IMEI二维码路径
+IMEI_PATH = BASE_PATH + '/config/add_devices_IMEI.jpg'
+# 新增设备的NQT二维码路径
+NQT_PATH = BASE_PATH + '/config/add_devices_NQT.jpg'
+# 模拟器照片存放路径
+SIMULATOR_PHOTO_PATH = '/sdcard/Download'
 
 if __name__ == '__main__':
     print(DESIRED_CAPS_YAML_PATH)

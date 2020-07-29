@@ -3,6 +3,7 @@
 # @Time    : 2020/04/13
 # @Author  : lfr
 
+import os
 import time
 import yaml
 from appium import webdriver
@@ -41,7 +42,12 @@ class BaseDriver:
             log.info("驱动app打开成功...")
             return driver
         except Exception as e:
-            log.error("驱动app打开失败：{}".format(e))
+            error_str = "Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接"
+            if error_str in str(e):
+                log.error("Appium服务未开启！！！")
+            else:
+                log.error("驱动app打开失败：{}".format(e))
+            os._exit(0)
 
     def ios_driver(self):
         pass

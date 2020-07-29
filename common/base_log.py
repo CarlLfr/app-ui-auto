@@ -14,7 +14,7 @@ class BaseLog:
     '''
     def __init__(self):
         # 日志文件命名
-        self.logName = os.path.join(LOG_PATH, '%s.log' % time.strftime('%Y_%m_%d'))
+        self.logName = os.path.join(LOG_PATH, '%s.log' % time.strftime('%Y-%m-%d'))
 
         self.logger = logging.getLogger()
         self.logger.setLevel(logging.DEBUG)

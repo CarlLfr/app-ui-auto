@@ -19,13 +19,14 @@ class MyWallet(MyPage):
     screen_out_loc = "支出"
     screen_order_loc = "订单"
     screen_fenzhang_loc = "分账"
-    screen_shop_loc = "洗衣液投放器店"
+    screen_shop_loc = "自动化测试专用店铺"
     screen_reset_loc = (By.ID, 'com.qekj.merchant:id/ll_reset')
     screen_sure_loc = (By.ID, 'com.qekj.merchant:id/ll_sure')
     # 筛选结果
     screen_result_loc = (By.XPATH, '//android.widget.RelativeLayout[@index=1]')
+    no_result = "暂无数据"
     order_detail_name = "退款订单"
-    order_detail_store = "洗衣液投放器店"
+    order_detail_store = "自动化测试专用店铺"
 
     # 提现记录
     withdraw_record_loc = (By.ID, 'com.qekj.merchant:id/tv_withdraw_record')
@@ -72,27 +73,27 @@ class MyWallet(MyPage):
 
     def screen_income_btn(self):
         '''收支明细-筛选条件-收入按钮'''
-        mw_ele = self.get_visible_element(self.screen_income_loc)
+        mw_ele = self.get_text_element(self.screen_income_loc)
         return mw_ele
 
     def screen_out_btn(self):
         '''收支明细-筛选条件-支出按钮'''
-        mw_ele = self.get_visible_element(self.screen_out_loc)
+        mw_ele = self.get_text_element(self.screen_out_loc)
         return mw_ele
 
     def screen_order_btn(self):
         '''收支明细-筛选条件-订单按钮'''
-        mw_ele = self.get_visible_element(self.screen_order_loc)
+        mw_ele = self.get_text_element(self.screen_order_loc)
         return mw_ele
 
     def screen_fenzhang_btn(self):
         '''收支明细-筛选条件-分账按钮'''
-        mw_ele = self.get_visible_element(self.screen_fenzhang_loc)
+        mw_ele = self.get_text_element(self.screen_fenzhang_loc)
         return mw_ele
 
     def screen_shop_btn(self):
-        '''收支明细-筛选条件-选择店铺（洗衣液投放器店）'''
-        mw_ele = self.get_visible_element(self.screen_shop_loc)
+        '''收支明细-筛选条件-选择店铺（自动化测试专用店铺）'''
+        mw_ele = self.get_text_element(self.screen_shop_loc)
         return mw_ele
 
     def screen_reset_btn(self):

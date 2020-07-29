@@ -47,7 +47,7 @@ class TestReportForm(unittest.TestCase):
         result = rfp.is_toast_exist(rfp.export_success_toast)
         self.assertTrue(result)
 
-    @unittest.skip("调试跳过，测试账号建好后需完善脚本")
+    @unittest.skip("调试跳过")
     def test_report_screen(self):
         '''验证报表页流水筛选功能'''
         log.info("验证报表页流水筛选功能")
@@ -60,6 +60,7 @@ class TestReportForm(unittest.TestCase):
         result = rfp.new_is_exist_element(rfp.store_text)
         self.assertTrue(result)
 
+    # @unittest.skip("调试，跳过")
     def test_report_order(self):
         '''验证报表页订单筛选功能'''
         log.info("验证报表页订单筛选功能")

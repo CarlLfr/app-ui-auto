@@ -31,18 +31,21 @@ class TestMyWallet(unittest.TestCase):
         mw = MyWallet(self.driver)
         mw.enter_to_my()
         mw.enter_to_myWallet()
-        # 筛选操作
+        # 进入收支明细页进行筛选操作
         mw.screen_opera()
-        # 选择第一条筛选结果进入详情页
-        mw.enter_to_result_detail()
+        # 判断筛选是否有结果
+        if mw.is_exist_element(mw.no_result):
+            pass
+        else:
+            # 选择第一条筛选结果进入详情页
+            mw.enter_to_result_detail()
+            # 断言详情页与筛选条件是否一致
+            r_1 = mw.new_is_exist_element(mw.order_detail_name)
+            self.assertTrue(r_1)
+            r_2 = mw.new_is_exist_element(mw.order_detail_store)
+            self.assertTrue(r_2)
 
-        # 断言详情页与筛选条件是否一致
-        r_1 = mw.new_is_exist_element(mw.order_detail_name)
-        self.assertTrue(r_1)
-        r_2 = mw.new_is_exist_element(mw.order_detail_store)
-        self.assertTrue(r_2)
-
-    @unittest.skip("该用例未调试")
+    # @unittest.skip("调试，跳过")
     def test_withdraw_recode(self):
         '''验证我的钱包-体现记录页展示是否正常'''
         log.info("验证我的钱包-体现记录页展示是否正常")
@@ -53,7 +56,7 @@ class TestMyWallet(unittest.TestCase):
         mw.enter_to_withdraw_record()
 
         # 断言展示是否正常
-        result = mw.new_is_exist_element(mw.record_detail_text)
+        result = mw.is_exist_element(mw.record_detail_text)
         self.assertFalse(result)
 
     def tearDown(self) -> None:

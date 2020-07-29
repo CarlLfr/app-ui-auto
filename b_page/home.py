@@ -16,6 +16,9 @@ class HomePage(BasePage):
     total_revenue_loc = (By.ID, 'com.qekj.merchant:id/tv_total_revenue')
     month_revenue_loc = (By.ID, 'com.qekj.merchant:id/tv_month_revenue')
 
+    # 全部应用
+    all_applications_loc = (By.XPATH, '//android.widget.TextView[@text="全部应用"]')
+
     # 今日收益
 
 
@@ -56,6 +59,14 @@ class HomePage(BasePage):
         self.total_bg_0().click()
         time.sleep(1)
 
+    def enter_to_all_applications(self):
+        '''进入全部应用页面'''
+        time.sleep(1)
+        self.all_applications_btn().click()
+        time.sleep(1)
+
+
+
     def today_revenue(self):
         '''今日收益按钮'''
         home_ele = self.get_visible_element(self.today_revenue_loc)
@@ -89,4 +100,9 @@ class HomePage(BasePage):
     def email_sure_btn(self):
         '''邮箱弹窗-确定按钮'''
         home_ele = self.get_visible_element(self.email_sure)
+        return home_ele
+
+    def all_applications_btn(self):
+        '''首页-全部应用'''
+        home_ele = self.get_visible_element(self.all_applications_loc)
         return home_ele
